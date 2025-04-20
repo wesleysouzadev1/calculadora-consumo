@@ -10,20 +10,32 @@ import { FormsModule } from '@angular/forms';    // 👈 para usar [(ngModel)]
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent {
-  unidade: 'g' | 'kg' = 'g';
-  quantidadeBase: number = 0;
-  valorBase: number = 0;
-  consumo: number = 0;
-  resultado: number | null = null;
+    unidade: 'g' | 'kg' = 'g';          // Pode manter um padrão aqui
+    quantidadeBase: number | null = null;
+    valorBase: number | null = null;
+    quantidadeGramas: number | null = null;
+    resultado1: number | null = null;
+    resultado2: number | null = null;
+  
+    calcular(): void {
+      if (
+        this.quantidadeBase === null ||
+        this.valorBase === null ||
+        this.quantidadeGramas === null
+      ) {
+        this.resultado1 = null;
+        return;
+      }
+  
+      const quantidadeEmGramas = this.unidade === 'kg'
+        ? this.quantidadeBase * 1000
+        : this.quantidadeBase;
+  
+      const precoPorGrama = this.valorBase / quantidadeEmGramas;
+      this.resultado1 = precoPorGrama * this.quantidadeGramas;
 
-  calcular(): void {
-    if (!this.quantidadeBase || !this.valorBase || !this.consumo) {
-      this.resultado = null;
-      return;
+      const valorComLucro = this.resultado1 * 1.55; // 50% de lucro
+      this.resultado2 = valorComLucro; // Armazena o valor com lucro
     }
-
-    const quantidadeEmGramas = this.unidade === 'kg' ? this.quantidadeBase * 1000 : this.quantidadeBase;
-    const precoPorGrama = this.valorBase / quantidadeEmGramas;
-    this.resultado = precoPorGrama * this.consumo;
-  }
 }
+  

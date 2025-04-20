@@ -86,7 +86,20 @@
     transform: scale(1.02);
   }
   
-  .resultado {
+  .resultado1 {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #28a745;
+    background-color: #e6ffed;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #c1f1d2;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .resultado2 {
     margin-top: 2rem;
     font-size: 1.3rem;
     font-weight: bold;
