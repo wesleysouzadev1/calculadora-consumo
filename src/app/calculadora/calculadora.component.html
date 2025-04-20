@@ -1,5 +1,8 @@
 <div class="calculadora-card">
-  <h2>Calculadora Dona Fit 💪</h2>
+
+  <img src="./assets/imgs/logo.png" alt="Logo Donafit" class="logo"/>
+
+  <h2>Calculadora</h2>
 
   <label for="unidade">🧪 Unidade de Peso:</label>
   <select [(ngModel)]="unidade" name="unidade">
@@ -19,10 +22,10 @@
   <button (click)="calcular()">Calcular 💡</button>
 
   <div *ngIf="resultado1 !== null" class="resultado1">
-    Valor Base: R$ {{ resultado1 | number:'1.2-2' }}
+    Valor Base: R$ {{resultado1 | number:'1.2-2'}}
   </div>
 
   <div *ngIf="resultado2 !== null" class="resultado2">
-    Valor Lucro: R$ {{ resultado2 | number:'1.2-2' }}
+    Valor com Lucro: R$ {{resultado2 | number:'1.2-2'}}
   </div>
 </div>
