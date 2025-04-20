@@ -1,0 +1,25 @@
+<div class="calculadora-card">
+  <h2>Calculadora Dona Fit 💪</h2>
+
+  <label for="unidade">🧪 Unidade de Preço:</label>
+  <select [(ngModel)]="unidade" name="unidade">
+    <option value="g">Gramas (g)</option>
+    <option value="kg">Quilos (kg)</option>
+  </select>
+
+  <label>⚖️ Quantidade referente ao valor:</label>
+  <input type="number" [(ngModel)]="quantidadeBase" placeholder="Ex: 100" step="0.01" />
+
+  <label>💵 Valor em R$ dessa quantidade:</label>
+  <input type="number" [(ngModel)]="valorBase" placeholder="Ex: 5.00" step="0.01" />
+
+  <label>🍽️ Consumo do cliente (em gramas):</label>
+  <input type="number" [(ngModel)]="consumo" placeholder="Ex: 250" step="0.01" />
+
+  <button (click)="calcular()">Calcular 💡</button>
+
+  <div *ngIf="resultado !== null" class="resultado">
+    Valor a cobrar: R$ {{ resultado | number:'1.2-2' }}
+  </div>
+
+</div>
